@@ -4,6 +4,6 @@ var store = require("../controllers/gameNodeController");
 var JWT = require("../middleware/jwt");
 
 router.post("/add", JWT.checkToken, store.addToHistory);
-router.post("/getHistory", JWT.checkToken, store.getGameHistory);
+router.get("/getHistory", JWT.checkToken, store.getGameHistory);
 
 module.exports = router;
