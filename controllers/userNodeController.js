@@ -51,6 +51,17 @@ exports.register = function(req, res) {
   });
 };
 
+exports.registerUser = function(req, res) {
+  userModel
+    .register(req.body)
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+};
+
 exports.getAllUsers = function(req, res) {
   if (req.userData.admin) {
     userModel

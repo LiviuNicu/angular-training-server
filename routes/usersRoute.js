@@ -8,7 +8,7 @@ router.get("/", function(req, res, next) {
   res.send("respond with a resource");
 });
 
-router.post("/register", user.register);
+router.post("/register", user.registerUser);
 router.post("/login", user.login);
 router.post("/getLoggedUser", JWT.checkToken, user.getLoggedUser);
 
