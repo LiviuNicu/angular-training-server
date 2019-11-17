@@ -1,0 +1,79 @@
+
+    <section class="banner-page-section">
+        <div class="container">
+            <h1 style="visibility: hidden;">.</h1>
+            <!--<p>Single Post</p>-->
+        </div>
+    </section>
+    <!-- End banner-page-section -->
+
+    <!-- single-post-section
+        ================================================== -->
+
+    <section class="single-post-section">
+        <div class="container">
+            <div class="title-section">
+                <h1>Open Positions</h1>
+                <div class="container">
+                    <ul class="filter">
+                        <li><a href="/jobs" >All</a></li>
+                        {{#each categories}}
+                            <li><a href="/jobs/category?name={{this}}">{{this}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                {{#each jobs}}
+                    <div   class="card col-md-3">
+                        <a href="/job?id={{this.id}}">
+                        <div class="card-color">
+                            <table style="height: 100%; width: 100%; text-align: center">
+                                <tr>
+                                    <td>
+                                        <p class="apply-text">APPLY</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        </a>
+                        <a>
+                            <div class="wrapper">
+                                <img class="card-img-top" src="/upload/{{this.id}}.jpg">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{this.title}}</h5>
+                                    <p  style="font-size: 14px;" class="card-text limited-text">{{{this.smallDesc}}}</p>
+                                    <span class="margin-bottom: 10px;">{{this.category}} | 1 week ago</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- End single-post section -->
+
+    <!-- footer
+        ================================================== -->
+    <footer>
+        <div class="container">
+            <a class="logo-spec" href="/"><img src="images/logo.png" alt=""></a>
+            <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+            <p class="copyright">
+                &copy; 2019 Cornerstone Technologies. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- End footer -->

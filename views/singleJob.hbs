@@ -1,0 +1,173 @@
+
+<!-- banner-page-section
+    ================================================== -->
+<section class="banner-page-section">
+    <div class="container">
+        <h1 style="visibility: hidden;">.</h1>
+        <!--<p>Single Post</p>-->
+    </div>
+</section>
+<!-- End banner-page-section -->
+
+<!-- single-post-section
+    ================================================== -->
+
+
+<section class="single-post-section">
+    <div class="container">
+        <div class="title-section">
+            <h1>{{job.title}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="single-post-box">
+                    <div class="blog-post">
+                        <div class="post-gallery">
+                            <img src="/upload/{{job.id}}.jpg">
+                        </div>
+                        <div class="post-content">
+
+                            <div class="post-title">
+                                <span class="date">{{job.dateAdded}}</span>
+                            </div>
+                            {{{job.description}}}
+
+                        </div>
+
+                    </div>
+
+                    <div class="share-box">
+                        <ul class="share-list">
+                            <li><span>Share:</span></li>
+                            <li><a href="#">facebook</a></li>
+                            <li><a href="#">twitter</a></li>
+                            <li><a href="#">google +</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="sidebar">
+                    <h2>Apply to this job</h2>
+                    <form action="/job/add/candidate" method="post">
+                         <input placeholder="Job title..." type="hidden" name="jobTitle" value="{{job.title}}" class="form-control input-sm"/>
+                         <input placeholder="Job ID..." type="hidden" name="_job" value="{{job._id}}" class="form-control input-sm"/>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input placeholder="Email..." name="email" class="form-control input-sm"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input placeholder="Phone..." name="phone" class="form-control input-sm"/>
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn Profile</label>
+                            <input placeholder="LinkedIn Profile..." name="linkedin" class="form-control input-sm"/>
+                        </div>
+                         <div class="apply-button">
+                            <button type="submit" class="btn btn-primary btn-block">APPLY</button>
+                        </div>
+                    </form>
+                   
+
+                    <div class="category-widget widget">
+                        <h2>Categories</h2>
+                        <ul class="category-list">
+                            <li><a href="/jobs">All Jobs</a></li>
+                            {{#each categories}}
+                                <li><a style="text-transform: capitalize" href="/jobs/category?name={{this}}">{{this}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="popular-widget widget">
+                        <h2>Other Jobs</h2>
+                        <ul class="popular-list">
+                            {{#each jobs}}
+                                <li>
+                                    <img src="/upload/{{this.id}}.jpg">
+                                    <div class="side-content">
+                                        <h2><a href="/job?id={{this.id}}">{{this.title}}</a></h2>
+                                        <span style="text-transform: capitalize">{{this.category}}</span>
+                                    </div>
+                                </li>
+                            {{/each}}
+
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb1.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">Java Developer</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb2.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">UMD Developer</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb3.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">Android Developer</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb4.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">Junior iOS Developer.</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb4.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">Senior iOS Developer.</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img alt="" src="upload/thumb4.jpg">-->
+                                <!--<div class="side-content">-->
+                                    <!--<h2><a href="single-post.html">UX/UI Designer</a></h2>-->
+                                    <!--<span>12 September 2015</span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End single-post section -->
+
+
+
+<!-- footer
+    ================================================== -->
+<footer>
+    <div class="container">
+        <a class="logo-spec" href="/"><img src="images/logo.png" alt=""></a>
+        <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+        <p class="copyright">
+            &copy; 2018 Spectral. All rights reserved.
+        </p>
+    </div>
+</footer>
+<!-- End footer -->
+
+<script>
+
+</script>
