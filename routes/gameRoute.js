@@ -5,5 +5,6 @@ var JWT = require("../middleware/jwt");
 
 router.post("/add", JWT.checkToken, store.addToHistory);
 router.get("/getHistory", JWT.checkToken, store.getGameHistory);
+router.post("/players/search", JWT.checkToken, store.searchPlayers);
 
 module.exports = router;

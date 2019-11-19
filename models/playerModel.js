@@ -26,3 +26,17 @@ exports.addPlayer = function(data) {
     });
   });
 };
+
+exports.getAllPlayers = function(playerNameQuery) {
+  return new Promise((resolve, reject) => {
+    player
+      .find({ name: { $regex: playerNameQuery, $options: "i" } })
+      .exec(function(err, doc) {
+        if (err) {
+          reject({ err });
+        } else {
+          resolve(doc);
+        }
+      });
+  });
+};

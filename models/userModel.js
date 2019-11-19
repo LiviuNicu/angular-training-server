@@ -22,7 +22,7 @@ exports.register = function(userReq) {
   var newUser = new user();
 
   newUser.set("email", userReq.email);
-  newUser.set("hashed_password", hashPW(userReq.password));
+  newUser.set("hashed_password", hashPW(userReq.passwords.password));
   newUser.set("name", userReq.name);
 
   return new Promise((resolve, reject) => {
@@ -40,7 +40,7 @@ exports.addCustomer = function(userReq, loggedUserId) {
   var newUser = new user();
 
   newUser.set("email", userReq.email);
-  newUser.set("hashed_password", hashPW(userReq.password));
+  newUser.set("hashed_password", hashPW(userReq.passwords.password));
   newUser.set("name", userReq.name);
 
   return new Promise((resolve, reject) => {
@@ -61,8 +61,8 @@ exports.login = function(userReq) {
         reject(err);
       }
       if (!user) {
-        resolve({ msg: "Auth failed" });
-      } else if (user.hashed_password === hashPW(userReq.pass.toString())) {
+        reject({ msg: "Auth failed" });
+      } else if (user.hashed_password === hashPW(userReq.password.toString())) {
         var token = JWT.getToken({
           email: user.email,
           _id: user._id,
@@ -74,14 +74,12 @@ exports.login = function(userReq) {
           msg: "auth successfull",
           token: token,
           user: {
-            firstName: user.firstName,
-            lastName: user.lastName,
-            accesType: user.accesType,
-            admin: user.admin
+            name: user.name,
+            email: user.email
           }
         });
       } else {
-        resolve({ msg: "Auth failed" });
+        reject({ msg: "Auth failed" });
       }
     });
   });

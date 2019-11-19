@@ -3,7 +3,8 @@ var mongoose = require("mongoose"),
 
 var GameHistory = new Schema({
   players: [{ type: Schema.Types.ObjectId, ref: "player" }],
-  addedBy: { type: Schema.Types.ObjectId, ref: "user" }
+  addedBy: { type: Schema.Types.ObjectId, ref: "user" },
+  dateAdded: { type: Date, default: Date.now }
 });
 var history = mongoose.model("history", GameHistory);
 

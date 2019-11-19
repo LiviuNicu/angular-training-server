@@ -39,3 +39,14 @@ exports.getGameHistory = (req, res) => {
       res.status(500).json(error);
     });
 };
+
+exports.searchPlayers = (req, res) => {
+  playerModel
+    .getAllPlayers(req.body.name)
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+};
